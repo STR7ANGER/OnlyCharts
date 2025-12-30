@@ -3,38 +3,31 @@ import YahooFinance from 'yahoo-finance2';
 import { TimeScale } from '@/utils/chart/types';
 
 // Map our time scale to Yahoo Finance interval
+// Map our time scale to Yahoo Finance interval
 const INTERVAL_MAP: Record<TimeScale, string> = {
   '1m': '1m',
-  '3m': '3m',
   '5m': '5m',
   '15m': '15m',
   '30m': '30m',
   '1h': '1h',
-  '2h': '2h',
-  '4h': '4h',
   '1d': '1d',
   '3d': '1d', // Yahoo doesn't support 3d, use 1d
   '1w': '1wk',
   '1M': '1mo',
-  '3M': '3mo',
 };
 
 // Calculate period based on time scale
 function getPeriod(timeScale: TimeScale): string {
   const periodMap: Record<TimeScale, string> = {
     '1m': '1d',
-    '3m': '1d',
     '5m': '1d',
     '15m': '5d',
     '30m': '1mo',
     '1h': '3mo',
-    '2h': '6mo',
-    '4h': '1y',
     '1d': '2y',
     '3d': '2y',
     '1w': '5y',
     '1M': '10y',
-    '3M': '10y',
   };
   return periodMap[timeScale] || '1y';
 }
