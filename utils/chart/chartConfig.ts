@@ -1,3 +1,4 @@
+import { ColorType, CrosshairMode, LineStyle, LineWidth } from 'lightweight-charts';
 import { ChartType, TimeScale } from './types';
 
 export const CHART_TYPE_LABELS: Record<ChartType, string> = {
@@ -24,34 +25,34 @@ export const TIME_SCALE_LABELS: Record<TimeScale, string> = {
 export const CHART_THEME = {
   layout: {
     textColor: '#9CA3AF',
-    background: { color: '#000000' },
+    background: { type: ColorType.Solid, color: '#000000' },
     fontSize: 12,
     fontFamily: '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif',
   },
   grid: {
     vertLines: {
       color: '#1A1A1A',
-      style: 1,
+      style: LineStyle.Solid,
       visible: true,
     },
     horzLines: {
       color: '#1A1A1A',
-      style: 1,
+      style: LineStyle.Solid,
       visible: true,
     },
   },
   crosshair: {
-    mode: 0,
+    mode: CrosshairMode.Normal,
     vertLine: {
       color: '#4B5563',
-      width: 1,
-      style: 3,
+      width: 1 as LineWidth,
+      style: LineStyle.Dashed,
       labelBackgroundColor: '#1F1F1F',
     },
     horzLine: {
       color: '#4B5563',
-      width: 1,
-      style: 3,
+      width: 1 as LineWidth,
+      style: LineStyle.Dashed,
       labelBackgroundColor: '#1F1F1F',
     },
   },
